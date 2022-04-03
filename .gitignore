@@ -1,3 +1,4 @@
-rm -f bin/*.bin
-rm -f *.bin
-rm -f obj/*.obj
+bin/*.bin
+*.bin
+obj/*.obj
+.vscode
