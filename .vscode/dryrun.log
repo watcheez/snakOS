@@ -1,0 +1,5 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/favero/Documents/snakos'
+cat bin/everything.bin bin/zeroes.bin > snakOs.bin
+make: Leaving directory '/home/favero/Documents/snakos'
+ 

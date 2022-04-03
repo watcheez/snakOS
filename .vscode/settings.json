@@ -1,0 +1,10 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "files.associations": {
+        "stdint.h": "c",
+        "cstdint": "c",
+        "c++config.h": "c",
+        "print.h": "c",
+        "idt.h": "c"
+    }
+}
