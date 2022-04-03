@@ -5,5 +5,6 @@
 #include "print.h"
 #include "idt.h"
 #include "isrs.h"
+#include "irq.h"
 
 #endif

@@ -5,11 +5,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Sun Apr  3 01:40:46 2022
+# Make data base, printed on Sun Apr  3 03:02:14 2022
 
 # Variables
- 
 
 # 'override' directive
 GNUMAKEFLAGS := 
@@ -206,7 +206,6 @@ GNOME_SHELL_SESSION_MODE = ubuntu
 # makefile (from 'Makefile', line 17)
 FINAL_BIN = snakOs.bin
 # makefile (from 'Makefile', line 2)
- 
 ASFLAGS = -f elf
 # default
 MAKE_VERSION := 4.2.1
@@ -218,6 +217,7 @@ SNAP_REVISION = 92
 .DEFAULT_GOAL := all
 # environment
 XDG_CURRENT_DESKTOP = Unity
+ 
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
@@ -289,7 +289,7 @@ TERM = xterm-256color
 # environment
 VSCODE_PID = 2819
 # variable set hash-table stats:
-# Load=138/1024=13%, Rehash=0, Collisions=14/194=7%
+# Load=138/1024=13%, Rehash=0, Collisions=14/198=7%
 
 # Pattern-specific Variable Values
 
@@ -297,11 +297,11 @@ VSCODE_PID = 2819
 
 # Directories
 
-# ./include (device 66309, inode 400599): 8 files, no impossibilities.
+# ./include (device 66309, inode 400599): 9 files, no impossibilities.
 # . (device 66309, inode 404935): 13 files, no impossibilities.
-# ./src (device 66309, inode 400578): 10 files, no impossibilities.
+# ./src (device 66309, inode 400578): 11 files, no impossibilities.
 
-# 31 files, no impossibilities in 3 directories.
+# 33 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
@@ -312,14 +312,13 @@ VSCODE_PID = 2819
 # Not a target:
 include/system.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-03 00:54:17.176363789
+#  Last modified 2022-04-03 02:36:05.598781971
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 include/memfunc.h:
 #  Implicit rule search has been done.
- 
 #  Last modified 2022-04-02 22:01:19.417275072
 #  File has been updated.
 #  Successfully updated.
@@ -334,35 +333,19 @@ src/memfunc.c:
 all: bin/everything.bin bin/zeroes.bin
 #  Command line target.
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
-# automatic
-# @ := all
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := bin/everything.bin bin/zeroes.bin
-# automatic
-# | := 
-# automatic
-# < := bin/everything.bin
-# automatic
-# ^ := bin/everything.bin bin/zeroes.bin
-# automatic
-# ? := bin/everything.bin bin/zeroes.bin
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/13=8%
+# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
 #  recipe to execute (from 'Makefile', line 20):
 	cat $^ > $(FINAL_BIN)
 
-obj/isrs.o: src/isrs.c include/memfunc.h include/system.h include/idt.h include/isrs.h include/types.h include/print.h
+obj/isrs.o: src/isrs.c include/memfunc.h include/irq.h include/system.h include/idt.h include/isrs.h include/types.h include/print.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: 'isrs'
-#  Last modified 2022-04-03 01:40:34.825699908
+ 
+#  Last modified 2022-04-03 03:01:57.788933713
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 38):
@@ -378,54 +361,46 @@ distclean: clean
 
 bin/boot.bin: src/boot.asm
 #  Implicit rule search has not been done.
-#  Last modified 2022-04-03 01:40:34.729699502
+#  Last modified 2022-04-03 02:17:17.642456258
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 26):
- 
 	$(ASM) $< -f bin -o $@
 
 # Not a target:
 src/boot.asm:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-03 01:26:41.370538927
+#  Last modified 2022-04-03 02:16:45.710109138
 #  File has been updated.
 #  Successfully updated.
 
-obj/idt.o: src/idt.c include/memfunc.h include/system.h include/idt.h include/isrs.h include/types.h include/print.h
+obj/idt.o: src/idt.c include/memfunc.h include/irq.h include/system.h include/idt.h include/isrs.h include/types.h include/print.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: 'idt'
-#  Last modified 2022-04-03 01:40:34.789699756
+#  Last modified 2022-04-03 03:01:57.752933138
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 38):
 	$(CC) $(CFLAGS) $(CPPFLAGS) $< -o $@
 
 # Not a target:
-.SUFFIXES:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-03 01:40:28.385672909
+#  Last modified 2022-04-03 03:01:39.960648675
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 include/isrs.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-03 01:08:53.274832433
+#  Last modified 2022-04-03 02:42:52.094625173
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/isrs.c:
 #  Implicit rule search has been done.
- 
-#  Last modified 2022-04-03 01:14:18.587706102
+#  Last modified 2022-04-03 01:50:03.929629049
 #  File has been updated.
 #  Successfully updated.
 
@@ -443,11 +418,14 @@ src/idt.c:
 #  File has been updated.
 #  Successfully updated.
 
-bin/full_kernel.bin: obj/kernel_entry.o obj/kernel.o obj/print.o obj/idt.o obj/memfunc.o obj/isrs.o
+bin/full_kernel.bin: obj/kernel_entry.o obj/kernel.o obj/print.o obj/idt.o obj/memfunc.o obj/isrs.o obj/irq.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-04-03 01:40:34.829699925
+#  Last modified 2022-04-03 02:17:22.926513716
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+ 
+# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
 #  recipe to execute (from 'Makefile', line 32):
 	$(LD) $(LDFLAGS) $^ -o $@
 
@@ -460,64 +438,90 @@ bin/full_kernel.bin: obj/kernel_entry.o obj/kernel.o obj/print.o obj/idt.o obj/m
 # Not a target:
 src/kernel_entry.asm:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-03 01:08:12.086204658
+#  Last modified 2022-04-03 03:01:55.88490331
 #  File has been updated.
 #  Successfully updated.
 
+obj/irq.o: src/irq.c include/memfunc.h include/irq.h include/system.h include/idt.h include/isrs.h include/types.h include/print.h
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: 'irq'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := obj/irq.o
+# automatic
+# % := 
+# automatic
+# * := irq
+# automatic
+# + := src/irq.c include/memfunc.h include/irq.h include/system.h include/idt.h include/isrs.h include/types.h include/print.h
+# automatic
+# | := 
+# automatic
+# < := src/irq.c
+# automatic
+# ^ := src/irq.c include/memfunc.h include/irq.h include/system.h include/idt.h include/isrs.h include/types.h include/print.h
+# automatic
+# ? := src/irq.c include/memfunc.h include/irq.h include/system.h include/idt.h include/isrs.h include/types.h include/print.h
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/17=6%
+#  recipe to execute (from 'Makefile', line 38):
+	$(CC) $(CFLAGS) $(CPPFLAGS) $< -o $@
+
 clean:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 42):
 	rm -f obj/*.o
 
-obj/kernel.o: src/kernel.c include/memfunc.h include/system.h include/idt.h include/isrs.h include/types.h include/print.h
+obj/kernel.o: src/kernel.c include/memfunc.h include/irq.h include/system.h include/idt.h include/isrs.h include/types.h include/print.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: 'kernel'
-#  Last modified 2022-04-03 01:40:34.749699586
+#  Last modified 2022-04-03 03:01:57.716932563
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 38):
 	$(CC) $(CFLAGS) $(CPPFLAGS) $< -o $@
 
-obj/print.o: src/print.c include/memfunc.h include/system.h include/idt.h include/isrs.h include/types.h include/print.h
+obj/print.o: src/print.c include/memfunc.h include/irq.h include/system.h include/idt.h include/isrs.h include/types.h include/print.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: 'print'
-#  Last modified 2022-04-03 01:40:34.769699671
+#  Last modified 2022-04-03 03:01:57.732932819
 #  File has been updated.
+ 
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 38):
 	$(CC) $(CFLAGS) $(CPPFLAGS) $< -o $@
 
 bin/zeroes.bin: src/zeroes.asm
 #  Implicit rule search has not been done.
-#  Last modified 2022-04-03 01:40:34.833699942
-#  File has been updated.
-#  Successfully updated.
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'Makefile', line 29):
 	$(ASM) $< -f bin -o $@
 
 # Not a target:
 src/zeroes.asm:
-#  Implicit rule search has been done.
-#  Last modified 2022-04-03 01:34:59.277211887
-#  File has been updated.
-#  Successfully updated.
- 
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 bin/everything.bin: bin/boot.bin bin/full_kernel.bin
 #  Implicit rule search has not been done.
-#  Last modified 2022-04-03 01:40:34.829699925
+#  Last modified 2022-04-03 02:17:22.926513716
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
 #  recipe to execute (from 'Makefile', line 23):
 	cat $^ > $@
 
-obj/memfunc.o: src/memfunc.c include/memfunc.h include/system.h include/idt.h include/isrs.h include/types.h include/print.h
+obj/memfunc.o: src/memfunc.c include/memfunc.h include/irq.h include/system.h include/idt.h include/isrs.h include/types.h include/print.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: 'memfunc'
-#  Last modified 2022-04-03 01:40:34.801699806
+#  Last modified 2022-04-03 03:01:57.768933394
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 38):
@@ -525,23 +529,38 @@ obj/memfunc.o: src/memfunc.c include/memfunc.h include/system.h include/idt.h in
 
 obj/kernel_entry.o: src/kernel_entry.asm
 #  Implicit rule search has not been done.
-#  Last modified 2022-04-03 01:40:34.733699519
+#  Last modified 2022-04-03 03:01:57.696932244
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 35):
 	$(ASM) $(ASFLAGS) $< -o $@
 
 # Not a target:
+include/irq.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-03 02:49:13.911459083
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/irq.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-03 02:55:39.578663432
+#  File has been updated.
+#  Successfully updated.
+ 
+
+# Not a target:
 include/types.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-02 21:52:41.614226154
+#  Last modified 2022-04-03 02:38:52.531442991
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/kernel.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-03 01:13:47.023238499
+#  Last modified 2022-04-03 03:01:19.948327739
 #  File has been updated.
 #  Successfully updated.
 
@@ -555,25 +574,24 @@ include/print.h:
 # Not a target:
 src/print.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-03 01:03:46.826074966
+#  Last modified 2022-04-03 02:16:45.710109138
 #  File has been updated.
 #  Successfully updated.
 
 # files hash-table stats:
-# Load=30/1024=3%, Rehash=0, Collisions=0/101=0%
+# Load=33/1024=3%, Rehash=0, Collisions=0/118=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 67 / storage = 692 B / avg = 10 B
-# current buf: size = 8162 B / used = 692 B / count = 67 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 73 / storage = 742 B / avg = 10 B
+# current buf: size = 8162 B / used = 742 B / count = 73 / avg = 10 B
 
-# strcache performance: lookups = 101 / hit rate = 33%
+# strcache performance: lookups = 108 / hit rate = 32%
 # hash-table stats:
- 
-# Load=67/8192=1%, Rehash=0, Collisions=5/101=5%
-# Finished Make data base on Sun Apr  3 01:40:46 2022
+# Load=73/8192=1%, Rehash=0, Collisions=5/108=5%
+# Finished Make data base on Sun Apr  3 03:02:14 2022
 
  

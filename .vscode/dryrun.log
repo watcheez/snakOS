@@ -1,5 +1,8 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/home/favero/Documents/snakos'
+i386-elf-gcc -ffreestanding -m32 -g -c -I./include src/irq.c -o obj/irq.o
+i386-elf-ld --oformat binary -Ttext 0x1000 obj/kernel_entry.o obj/kernel.o obj/print.o obj/idt.o obj/memfunc.o obj/isrs.o obj/irq.o -o bin/full_kernel.bin
+cat bin/boot.bin bin/full_kernel.bin > bin/everything.bin
 cat bin/everything.bin bin/zeroes.bin > snakOs.bin
 make: Leaving directory '/home/favero/Documents/snakos'
  
