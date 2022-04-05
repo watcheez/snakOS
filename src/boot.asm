@@ -1,13 +1,12 @@
 [org 0x7c00]
-KERNEL_LOCATION equ 0x1000
+KERNEL_LOCATION equ 0x7e00
 
-    
     mov [BOOT_DISK], dl
 
     xor ax, ax 
     mov es, ax                  ; here extra-segment is 0 since 0x7e00 fits in bx
     mov ds, ax
-    mov bp, 0x8000
+    mov bp, 0x7c00
     mov sp, bp
 
     ; 1.    Disk: diskNum
@@ -18,7 +17,7 @@ KERNEL_LOCATION equ 0x1000
     mov bx, KERNEL_LOCATION     ; pointer of the disk 
 
     mov ah, 0x02                    ; must be
-    mov al, 0x30                    ; number of sectors we want to read  // may be changed
+    mov al, 0x41                    ; number of sectors we want to read  // may be changed
     mov ch, 0x00                    ; cylinder number
     mov dh, 0x00                    ; head number
     mov cl, 0x02                    ; sector number
@@ -31,7 +30,7 @@ KERNEL_LOCATION equ 0x1000
     jc end                          ; handle error
 
     mov ah, 0x00
-    mov al, 0x03                    ; set text mod (0x03) / set vga mod (0x0d)
+    mov al, 0x13                    ; set text mod (0x03) / set vga linear 320x200x8 mod (0x13)
     int 0x10                        ; text mode => clear 
 
 ; =================
