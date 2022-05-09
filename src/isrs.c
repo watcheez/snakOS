@@ -1,6 +1,6 @@
 #include "isrs.h"
 #include "idt.h"
-#include "print.h"
+#include "vga.h"
 
 const unsigned char *EXCEPTION_MESSAGES[] = 
 {
@@ -79,10 +79,11 @@ void fault_handler(struct regs *r)
     if (r->int_no < 32) {
         /* Display the descrption for the Exception that occuerred. 
          * Here the sytem is halted with a infinite loop*/
-        clear();
-        print_string("EXCEPTION:", WHITE, BLACK, 0, 0);
-        print_string(EXCEPTION_MESSAGES[r->int_no], WHITE, BLACK, 0, 1);
-        print_string("System Halted!", WHITE, BLACK, 0, 2);
+        clearScreen();
+        writeString(0, 0, "EXCEPTION:");
+        writeString(0, 1, EXCEPTION_MESSAGES[r->int_no]);
+        writeString(0, 2, "System Halted!");
+
         for(;;);
     }
 }

@@ -1,16 +1,19 @@
 #include "system.h"
+#include "icons.h"
 
 extern void main() {
     idt_install();
     isrs_install();
     irq_install();
+    init_palette();
 
     __asm__ __volatile__ ("sti");
 
-    for (size_t i = 0; i < 80; ++i) {
-        for (size_t j = 0; j < 25; ++j) {
-            print_char(254, YELLOW, BLACK, i, j);
-        }
+
+    for (size_t i  = 0; i < 40; i++) {
+        writeChar(i % 40, i / 40, (i%10) + '0');
     }
-    print_string("Hello world! My name is SnakOs :) ", WHITE, BLACK, 0, 1);
+
+    drawIcon(98, 50, logo);
+
 }

@@ -16,4 +16,10 @@ struct regs
     uint32_t eip, cs, eflags, useresp, ss;              /* Pushed by the processor automatically */
 };
 
+struct icon {
+    uint32_t width;
+    uint32_t height;
+    const uint8_t *data;
+};
+
 #endif

@@ -13,7 +13,7 @@ CFILES=$(wildcard $(SRCDIR)/*.c)
 HFILES=$(wildcard $(INCLUDEDIR)/*.h)
 COBJECTS=$(CFILES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 ASMOBJECTS=$(ENTRY_ASMFILES:$(SRCDIR)/%_entry.asm=$(OBJDIR)/%_entry.o)
-LDFLAGS=--oformat binary -Ttext 0x1000
+LDFLAGS=--oformat binary -Ttext 0x7e00
 FINAL_BIN=snakOs.bin
 
 all: $(BINDIR)/everything.bin $(BINDIR)/zeroes.bin
@@ -28,7 +28,7 @@ $(BINDIR)/boot.bin: $(SRCDIR)/boot.asm
 $(BINDIR)/zeroes.bin: $(SRCDIR)/zeroes.asm
 	$(ASM) $< -f bin -o $@
 
-$(BINDIR)/full_kernel.bin: $(OBJDIR)/kernel_entry.o $(OBJDIR)/kernel.o $(OBJDIR)/print.o $(OBJDIR)/idt.o $(OBJDIR)/memfunc.o $(OBJDIR)/isrs.o $(OBJDIR)/irq.o
+$(BINDIR)/full_kernel.bin: $(OBJDIR)/kernel_entry.o $(OBJDIR)/kernel.o $(OBJDIR)/idt.o $(OBJDIR)/memfunc.o $(OBJDIR)/isrs.o $(OBJDIR)/irq.o $(OBJDIR)/vga.o
 	$(LD) $(LDFLAGS) $^ -o $@
 
 $(OBJDIR)/kernel_entry.o: $(SRCDIR)/kernel_entry.asm
