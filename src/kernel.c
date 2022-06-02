@@ -6,13 +6,14 @@ extern void main() {
     isrs_install();
     irq_install();
     init_palette();
+    timer_install();
 
     __asm__ __volatile__ ("sti");
 
 
-    for (size_t i  = 0; i < 40; i++) {
-        writeChar(i % 40, i / 40, (i%10) + '0');
-    }
+    // for (size_t i  = 0; i < 40; i++) {
+    //     writeChar(i % 40, i / 40, (i%10) + '0');
+    // }
 
     drawIcon(98, 50, logo);
 

@@ -1,10 +1,12 @@
 {
     "makefile.extensionOutputFolder": "./.vscode",
     "files.associations": {
+        "*.yml": "ansible",
         "stdint.h": "c",
         "cstdint": "c",
         "c++config.h": "c",
         "print.h": "c",
-        "idt.h": "c"
+        "idt.h": "c",
+        "timer.C": "cpp"
     }
 }

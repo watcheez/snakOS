@@ -28,7 +28,7 @@ $(BINDIR)/boot.bin: $(SRCDIR)/boot.asm
 $(BINDIR)/zeroes.bin: $(SRCDIR)/zeroes.asm
 	$(ASM) $< -f bin -o $@
 
-$(BINDIR)/full_kernel.bin: $(OBJDIR)/kernel_entry.o $(OBJDIR)/kernel.o $(OBJDIR)/idt.o $(OBJDIR)/memfunc.o $(OBJDIR)/isrs.o $(OBJDIR)/irq.o $(OBJDIR)/vga.o
+$(BINDIR)/full_kernel.bin: $(OBJDIR)/kernel_entry.o $(OBJDIR)/kernel.o $(OBJDIR)/idt.o $(OBJDIR)/memfunc.o $(OBJDIR)/isrs.o $(OBJDIR)/irq.o $(OBJDIR)/vga.o $(OBJDIR)/timer.o
 	$(LD) $(LDFLAGS) $^ -o $@
 
 $(OBJDIR)/kernel_entry.o: $(SRCDIR)/kernel_entry.asm
