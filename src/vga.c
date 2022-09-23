@@ -10,6 +10,12 @@
 
 static uint8_t * VGA = (uint8_t *) 0xA0000;
 
+static const uint8_t textures8x8[] = {
+	0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,   /* full */
+	0x00, 0x00, 0x18, 0x2c, 0x2c, 0x18, 0x00, 0x00,   /* apple */
+};
+
+
 #if FONT_USED == 1
 
 #define FONT_PADDING_TOP 2
@@ -18,7 +24,6 @@ static uint8_t * VGA = (uint8_t *) 0xA0000;
 #define FONT_WIDTH 8
 #define SCREEN_WIDTH 40
 #define SCREEN_HEIGHT 20
-
 
 // font 8x8
 static const uint8_t font[] = 
@@ -470,7 +475,9 @@ extern void writeChar(uint32_t x, uint32_t y, unsigned char c)
             for (i = 0; i < FONT_WIDTH; i++) {
                 if ((font[l + j] & (1 << (FONT_WIDTH - 1 - i)))) {
                     drawPixel(rx + i, ry + j + FONT_PADDING_TOP, 0xff);
-                }
+                } else {
+					drawPixel(rx + i, ry + j + FONT_PADDING_TOP, 0x00);
+				}
             }
         }
     }
@@ -492,6 +499,37 @@ extern void clearScreen()
     size_t i;
 
     for (i = 0; i < 63999; i++) {
-        *(VGA + i) = 0x00;
+        *(VGA + i) = 0;
+    }
+}
+
+extern void drawTexture8x8(uint8_t id, uint8_t x, uint8_t y, uint8_t color)
+{
+	size_t j;
+    size_t i;
+
+    size_t l = id * 8;
+    size_t rx = x * 8 + 68;
+    size_t ry = y * 8 + 8;
+
+    if (x >= -1 && y >= -1 && y <= 23 && x <= 23) {
+        for (j = 0; j < 8; j++) {
+            for (i = 0; i < 8; i++) {
+                if ((textures8x8[l + j] & (1 << (8 - 1 - i)))) {
+                    drawPixel(rx + i, ry + j, color);
+                } else {
+					drawPixel(rx + i, ry + j, 0x00);
+				}
+            }
+        }
+    }
+}
+
+extern void setScreenColor(uint8_t color)
+{
+	size_t i;
+
+    for (i = 0; i < 63999; i++) {
+        *(VGA + i) = color;
     }
 }

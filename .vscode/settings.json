@@ -7,6 +7,7 @@
         "c++config.h": "c",
         "print.h": "c",
         "idt.h": "c",
-        "timer.C": "cpp"
+        "timer.C": "cpp",
+        "mainmenu.h": "c"
     }
 }

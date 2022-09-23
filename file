@@ -1,13 +1,5 @@
-#include <timer.h>
-#include <irq.h>
-#include <vga.h>
-#include <memfunc.h>
-
-
-uint32_t timer_ticks = 0;
-/*
-static const uint16_t rand_seed[10000] = {
-3862 , 7113 , 2562 , 3995 , 4892 , 1256 , 1150 , 14 , 5985 , 3188 , 913 , 83 , 2630 , 2905 , 6263 , 7413 , 
+{3862 , 
+7113 , 2562 , 3995 , 4892 , 1256 , 1150 , 14 , 5985 , 3188 , 913 , 83 , 2630 , 2905 , 6263 , 7413 , 
 6602 , 1053 , 4593 , 851 , 5557 , 7667 , 7958 , 6733 , 4483 , 3966 , 1075 , 2974 , 6773 , 5078 , 338 , 
 2848 , 4400 , 3364 , 3937 , 4776 , 4784 , 3133 , 3673 , 3845 , 4720 , 5780 , 6980 , 2078 , 1689 , 5742 , 
 7130 , 1633 , 1855 , 7966 , 3613 , 6351 , 7740 , 5138 , 1889 , 4868 , 5256 , 5092 , 734 , 977 , 1617 , 
@@ -673,71 +665,4 @@ static const uint16_t rand_seed[10000] = {
 4760 , 7725 , 1272 , 3154 , 2233 , 2555 , 2924 , 833 , 7356 , 2022 , 502 , 802 , 4294 , 2602 , 1940 , 
 1441 , 4001 , 3069 , 2628 , 202 , 5328 , 6578 , 6438 , 4757 , 3745 , 3978 , 449 , 7423 , 3444 , 4873 , 
 64 , 2749 , 6230 , 4426 , 2822 , 7949 , 5165 , 2892 , 5116 , 1262 , 3280 , 6158 , 1100 , 2381 , 2641 , 
-1243 , 953 , 7999 , 4388 , 5063 , 5008 , 2145 , 100 , 6322};
-*/
-uint8_t listenerLen = 0;
-void (*listeners[128])();
-
-
-void notifyTimer()
-{
-    for (uint8_t i = 0; i < listenerLen; ++i) {
-        listeners[i]();
-    }
-}
-
-void timer_handler(struct regs *r)
-{
-    timer_ticks++;
-    /* Every 18 clocks (approximately 1 second), we will
-    *  display a message on the screen */
-    if (timer_ticks % 100 == 0)
-    {
-        notifyTimer();
-    }
-}
-
-void timer_install()
-{
-    timer_phase(100);
-    irq_install_handler(0, timer_handler);
-}
-
-void timer_wait(uint32_t ticks)
-{
-    uint64_t eticks;
-
-    eticks = timer_ticks + ticks;
-    while(timer_ticks < eticks);
-}
-
-void timer_phase(uint32_t hz)
-{
-    uint32_t divisor = 1193180 / hz;       /* Calculate our divisor */
-    outportb(0x43, 0x36);             /* Set our command byte 0x36 */
-    outportb(0x40, divisor & 0xFF);   /* Set low byte of divisor */
-    outportb(0x40, divisor >> 8);     /* Set high byte of divisor */
-}
-
-void addTimerListener(void (*listener)())
-{
-    listeners[listenerLen] = listener;
-    ++listenerLen;
-}
-
-void removeTimerListener(void (*listener)())
-{
-    for (uint8_t i = 0; i < listenerLen; ++i) {
-        if (listeners[i] == listener) {
-            listeners[i] = listeners[listenerLen - 1];
-            listeners[listenerLen - 1] = 0;
-            --listenerLen;
-            break;
-        }
-    }
-}
-
-uint16_t get_random_uint16(uint16_t max)
-{
-    return (timer_ticks * (timer_ticks + 1000)) % (max + 1);
-}
+1243 , 953 , 7999 , 4388 , 5063 , 5008 , 2145 , 100 , 6322 , 7146 }

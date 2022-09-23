@@ -6,5 +6,7 @@
 #include "irq.h"
 #include "vga.h"
 #include "timer.h"
+#include "kb.h"
+#include "mainmenu.h"
 
 #endif
