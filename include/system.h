@@ -8,5 +8,6 @@
 #include "timer.h"
 #include "kb.h"
 #include "mainmenu.h"
+#include "game.h"
 
 #endif

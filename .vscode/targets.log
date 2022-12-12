@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun  8 19:04:22 2022
+# Make data base, printed on Tue Oct 18 14:43:17 2022
 
 # Variables
 
@@ -26,14 +26,14 @@ XDG_SESSION_CLASS = user
 SNAP_COMMON = /var/snap/code/common
 # environment
 XDG_SESSION_TYPE = x11
-# environment
-VSCODE_LOG_NATIVE = false
 # makefile (from 'Makefile', line 11)
 ENTRY_ASMFILES = $(wildcard $(SRCDIR)/*_entry.asm)
+# environment
+NVM_INC = /home/favero/.nvm/versions/node/v18.4.0/include/node
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# makefile (from 'Makefile', line 5)
-CPPFLAGS = -I$(INCLUDEDIR)
+# environment
+IM_CONFIG_PHASE = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -47,27 +47,28 @@ CURDIR := /home/favero/Documents/snakos
 # makefile
 SHELL = /bin/sh
 # environment
-SNAP_DATA = /var/snap/code/97
+SNAP_DATA = /var/snap/code/111
 # environment
-VTE_VERSION = 6003
+VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"e9da4af53d2b453c3602a5ac49079ec7.fr","_translationsConfigFile":"/home/favero/.config/Code/clp/e9da4af53d2b453c3602a5ac49079ec7.fr/tcf.json","_cacheRoot":"/home/favero/.config/Code/clp/e9da4af53d2b453c3602a5ac49079ec7.fr","_resolvedLanguagePackCoreLocation":"/home/favero/.config/Code/clp/e9da4af53d2b453c3602a5ac49079ec7.fr/d045a5eda657f4d7b676dedbfa7aab8207f8a075","_corruptedFile":"/home/favero/.config/Code/clp/e9da4af53d2b453c3602a5ac49079ec7.fr/corrupted.info","_languagePackSupport":true}
 # environment
-VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"25fe6a3290ec415596628d4afc87a88c.fr","_translationsConfigFile":"/home/favero/.config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/tcf.json","_cacheRoot":"/home/favero/.config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr","_resolvedLanguagePackCoreLocation":"/home/favero/.config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5","_corruptedFile":"/home/favero/.config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/corrupted.info","_languagePackSupport":true}
-# environment
-JOURNAL_STREAM = 8:54727
+JOURNAL_STREAM = 8:54310
 # makefile (from 'Makefile', line 4)
 CFLAGS = -ffreestanding -m32 -g -c
 # environment
+ 
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
 SNAP_INSTANCE_NAME = code
 # environment
 SNAP_ARCH = amd64
+# makefile (from 'Makefile', line 10)
+INCLUDEDIR = ./include
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-IM_CONFIG_PHASE = 1
+GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
 USERNAME = favero
 # environment
@@ -76,66 +77,64 @@ MANDATORY_PATH = /usr/share/gconf/ubuntu.mandatory.path
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
-# environment
-VSCODE_VERBOSE_LOGGING = true
 # makefile (from 'Makefile', line 12)
 CFILES = $(wildcard $(SRCDIR)/*.c)
 # environment
-MANAGERPID = 1788
+_ = /snap/code/111/usr/share/code/code
+# makefile (from 'Makefile', line 5)
+CPPFLAGS = -I$(INCLUDEDIR)
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c77de8f1-f7ee-4039-ad81-aeb76a77eb20.sock
+MANAGERPID = 1608
 # environment
-VSCODE_CWD = /home/favero/Documents/snakos
+VSCODE_CWD = /home/favero
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/97/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/111/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = ~/.scripts:/usr/local/i386elfgcc/bin:/home/favero/.local/bin:~/.scripts:/usr/local/i386elfgcc/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/android-studio/bin
+PATH = /home/favero/.local/bin:~/.scripts:/usr/local/i386elfgcc/bin:/home/favero/.local/bin:/home/favero/.nvm/versions/node/v18.4.0/bin:~/.scripts:/usr/local/i386elfgcc/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/android-studio/bin
 # makefile (from 'Makefile', line 6)
 LD = i386-elf-ld
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/favero-HP-Spectre-x360-Convertible-13-aw0xxx:@/tmp/.ICE-unix/2009,unix/favero-HP-Spectre-x360-Convertible-13-aw0xxx:/tmp/.ICE-unix/2009
+SESSION_MANAGER = local/favero-HP-Spectre-x360-Convertible-13-aw0xxx:@/tmp/.ICE-unix/1999,unix/favero-HP-Spectre-x360-Convertible-13-aw0xxx:/tmp/.ICE-unix/1999
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/favero/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-SNAP = /snap/code/97
+SNAP = /snap/code/111
 # environment
-SNAP_VERSION = c3511e6c
+NVM_BIN = /home/favero/.nvm/versions/node/v18.4.0/bin
+# environment
+SNAP_VERSION = d045a5ed
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
-VSCODE_LOG_STACK = false
-# environment
-DISABLE_WAYLAND = 1
-# environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 5dbc7708e46d4f008fbfff4f22c81a6d
+INVOCATION_ID = 89a4614eea124aa1847a959df8963fd9
 # makefile (from 'Makefile', line 16)
 LDFLAGS = --oformat binary -Ttext 0x7e00
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/97/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/111/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
-LS_COLORS = rs=0:di=01;31:fi=00;36:ln=01;31:mh=00:pi=40;31:so=01;35:do=01;35:bd=40;31;01:cd=40;31;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LS_COLORS = 
 # environment
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
-# makefile (from 'Makefile', line 7)
-SRCDIR = ./src
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 13744
 # automatic
 %F = $(notdir $%)
 # environment
 DISPLAY = :0
-# environment
-VSCODE_PIPE_LOGGING = true
+# makefile (from 'Makefile', line 7)
+SRCDIR = ./src
 # environment
 SNAP_INSTANCE_KEY = 
 # environment
@@ -145,7 +144,7 @@ DOTNET_ROOT = /snap/dotnet-sdk/current
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1971
+SSH_AGENT_PID = 1961
 # makefile (from 'Makefile', line 15)
 ASMOBJECTS = $(ENTRY_ASMFILES:$(SRCDIR)/%_entry.asm=$(OBJDIR)/%_entry.o)
 # environment
@@ -161,7 +160,7 @@ VSCODE_CLI = 1
 # makefile (from 'Makefile', line 13)
 HFILES = $(wildcard $(INCLUDEDIR)/*.h)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/favero/.config/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+VSCODE_CODE_CACHE_PATH = /home/favero/.config/Code/CachedData/d045a5eda657f4d7b676dedbfa7aab8207f8a075
 # environment
 LOGNAME = favero
 # environment
@@ -170,6 +169,8 @@ APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # environment
 SNAP_CONTEXT = ltRIPG7M2TmgpcgvpfYCwUqjUhPwD46nBepTgcSx85xBeMGcB54g
+# environment
+NVM_CD_FLAGS = 
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
@@ -184,8 +185,6 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 MAKELEVEL := 0
 # environment
 SNAP_REAL_HOME = /home/favero
-# environment
-COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -193,9 +192,9 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SNAP_USER_DATA = /home/favero/snap/code/97
+SNAP_USER_DATA = /home/favero/snap/code/111
 # environment
-SHLVL = 1
+SHLVL = 0
 # makefile (from 'Makefile', line 1)
 ASM = nasm
 # makefile (from 'Makefile', line 8)
@@ -213,7 +212,7 @@ MAKE_VERSION := 4.2.1
 # environment
 USER = favero
 # environment
-SNAP_REVISION = 97
+SNAP_REVISION = 111
 # makefile
 .DEFAULT_GOAL := all
 # environment
@@ -222,20 +221,22 @@ XDG_CURRENT_DESKTOP = Unity
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := make
-# environment
-OLDPWD = /home/favero/Documents
 # default
 .VARIABLES := 
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-a61c020f-1.67.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-a61c020f-1.72.2-main.sock
+# environment
+BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
 MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
+# environment
+NVM_DIR = /home/favero/.nvm
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -255,19 +256,17 @@ SNAP_COOKIE = ltRIPG7M2TmgpcgvpfYCwUqjUhPwD46nBepTgcSx85xBeMGcB54g
 # makefile (from 'Makefile', line 9)
 OBJDIR = ./obj
 # environment
+PS1 = \[\e[36m\]\A \[\e[34m\]- \[\e[32m\]\u : \[\e[31m\]\w \n\[\e[05;32m\]> \[\e[00;33m\]
+# environment
 SNAP_NAME = code
 # environment
 GCC_COLORS = error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01
 # environment
 LC_ALL = C
-# makefile (from 'Makefile', line 10)
-INCLUDEDIR = ./include
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/bfa9abc4_a93f_4577_8a44_64a612d63417
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # automatic
 ^F = $(notdir $^)
-# environment
-GNOME_TERMINAL_SERVICE = :1.510
 # default
 SUFFIXES := 
 # environment
@@ -278,6 +277,8 @@ CHROME_DESKTOP = code-url-handler.desktop
 WINDOWPATH = 2
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+GJS_DEBUG_OUTPUT = stderr
 # default
 .RECIPEPREFIX := 
 # makefile (from 'Makefile', line 14)
@@ -285,14 +286,11 @@ COBJECTS = $(CFILES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
-# environment
-VSCODE_PID = 12723
+VSCODE_PID = 13789
 # variable set hash-table stats:
-# Load=139/1024=14%, Rehash=0, Collisions=14/203=7%
+# Load=138/1024=13%, Rehash=0, Collisions=39/202=19%
 
 # Pattern-specific Variable Values
- 
 
 # No pattern-specific variable values.
 
@@ -342,27 +340,8 @@ src/memfunc.c:
 obj/timer.o: src/timer.c include/memfunc.h include/irq.h include/system.h include/game.h include/idt.h include/vga.h include/mainmenu.h include/icons.h include/timer.h include/kb.h include/isrs.h include/types.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: 'timer'
-#  Last modified 2022-06-03 21:25:36.683281148
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := obj/timer.o
-# automatic
-# % := 
-# automatic
-# * := timer
-# automatic
-# + := src/timer.c include/memfunc.h include/irq.h include/system.h include/game.h include/idt.h include/vga.h include/mainmenu.h include/icons.h include/timer.h include/kb.h include/isrs.h include/types.h
-# automatic
-# | := 
-# automatic
-# < := src/timer.c
-# automatic
-# ^ := src/timer.c include/memfunc.h include/irq.h include/system.h include/game.h include/idt.h include/vga.h include/mainmenu.h include/icons.h include/timer.h include/kb.h include/isrs.h include/types.h
-# automatic
-# ? := src/timer.c
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/17=6%
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'Makefile', line 38):
 	$(CC) $(CFLAGS) $(CPPFLAGS) $< -o $@
 
@@ -388,7 +367,7 @@ all: bin/everything.bin bin/zeroes.bin
 obj/isrs.o: src/isrs.c include/memfunc.h include/irq.h include/system.h include/game.h include/idt.h include/vga.h include/mainmenu.h include/icons.h include/timer.h include/kb.h include/isrs.h include/types.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: 'isrs'
-#  Last modified 2022-06-03 21:21:52.540035312
+#  Last modified 2022-10-18 13:42:38.399988582
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 38):
@@ -404,7 +383,7 @@ distclean: clean
 
 bin/boot.bin: src/boot.asm
 #  Implicit rule search has not been done.
-#  Last modified 2022-04-05 18:28:55.67620379
+#  Last modified 2022-10-18 13:42:38.339988583
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 26):
@@ -433,7 +412,8 @@ src/kb.c:
 obj/idt.o: src/idt.c include/memfunc.h include/irq.h include/system.h include/game.h include/idt.h include/vga.h include/mainmenu.h include/icons.h include/timer.h include/kb.h include/isrs.h include/types.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: 'idt'
-#  Last modified 2022-06-03 21:21:52.484034502
+#  Last modified 2022-10-18 13:42:38.371988583
+ 
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 38):
@@ -468,10 +448,9 @@ include/timer.h:
 
 # Not a target:
 src/timer.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-06-03 22:41:34.406405545
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 include/mainmenu.h:
@@ -489,9 +468,27 @@ src/mainmenu.c:
 obj/vga.o: src/vga.c include/memfunc.h include/irq.h include/system.h include/game.h include/idt.h include/vga.h include/mainmenu.h include/icons.h include/timer.h include/kb.h include/isrs.h include/types.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: 'vga'
-#  Last modified 2022-06-03 21:21:52.604036239
+#  Last modified 2022-10-18 14:01:18.959984308
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := obj/vga.o
+# automatic
+# % := 
+# automatic
+# * := vga
+# automatic
+# + := src/vga.c include/memfunc.h include/irq.h include/system.h include/game.h include/idt.h include/vga.h include/mainmenu.h include/icons.h include/timer.h include/kb.h include/isrs.h include/types.h
+# automatic
+# | := 
+# automatic
+# < := src/vga.c
+# automatic
+# ^ := src/vga.c include/memfunc.h include/irq.h include/system.h include/game.h include/idt.h include/vga.h include/mainmenu.h include/icons.h include/timer.h include/kb.h include/isrs.h include/types.h
+# automatic
+# ? := src/vga.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/17=6%
 #  recipe to execute (from 'Makefile', line 38):
 	$(CC) $(CFLAGS) $(CPPFLAGS) $< -o $@
 
@@ -525,7 +522,7 @@ src/idt.c:
 
 bin/full_kernel.bin: obj/kernel_entry.o obj/kernel.o obj/idt.o obj/memfunc.o obj/isrs.o obj/irq.o obj/vga.o obj/timer.o obj/kb.o obj/mainmenu.o obj/game.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-03 21:25:36.687281207
+#  Last modified 2022-10-18 14:01:33.207984254
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -549,7 +546,7 @@ src/kernel_entry.asm:
 obj/irq.o: src/irq.c include/memfunc.h include/irq.h include/system.h include/game.h include/idt.h include/vga.h include/mainmenu.h include/icons.h include/timer.h include/kb.h include/isrs.h include/types.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: 'irq'
-#  Last modified 2022-06-03 21:21:52.568035717
+#  Last modified 2022-10-18 13:42:38.415988582
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 38):
@@ -558,7 +555,7 @@ obj/irq.o: src/irq.c include/memfunc.h include/irq.h include/system.h include/ga
 # Not a target:
 include/vga.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-03 21:14:07.24130853
+#  Last modified 2022-10-18 13:19:55.155993783
 #  File has been updated.
 #  Successfully updated.
 
@@ -572,15 +569,14 @@ clean:
 # Not a target:
 src/vga.c:
 #  Implicit rule search has been done.
- 
-#  Last modified 2022-06-03 21:13:37.344877137
+#  Last modified 2022-10-18 14:02:50.18398396
 #  File has been updated.
 #  Successfully updated.
 
 obj/kernel.o: src/kernel.c include/memfunc.h include/irq.h include/system.h include/game.h include/idt.h include/vga.h include/mainmenu.h include/icons.h include/timer.h include/kb.h include/isrs.h include/types.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: 'kernel'
-#  Last modified 2022-06-03 21:21:52.464034212
+#  Last modified 2022-10-18 13:42:38.359988583
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 38):
@@ -595,13 +591,14 @@ bin/zeroes.bin: src/zeroes.asm
 
 # Not a target:
 src/zeroes.asm:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 bin/everything.bin: bin/boot.bin bin/full_kernel.bin
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-03 21:25:36.687281207
+#  Last modified 2022-10-18 14:01:33.207984254
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -612,7 +609,7 @@ bin/everything.bin: bin/boot.bin bin/full_kernel.bin
 obj/memfunc.o: src/memfunc.c include/memfunc.h include/irq.h include/system.h include/game.h include/idt.h include/vga.h include/mainmenu.h include/icons.h include/timer.h include/kb.h include/isrs.h include/types.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: 'memfunc'
-#  Last modified 2022-06-03 21:21:52.512034907
+#  Last modified 2022-10-18 13:42:38.383988583
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 38):
@@ -620,7 +617,7 @@ obj/memfunc.o: src/memfunc.c include/memfunc.h include/irq.h include/system.h in
 
 obj/kernel_entry.o: src/kernel_entry.asm
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-03 21:11:39.855183199
+#  Last modified 2022-10-18 13:42:38.347988583
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 35):
@@ -683,6 +680,6 @@ src/kernel.c:
 # strcache performance: lookups = 147 / hit rate = 29%
 # hash-table stats:
 # Load=104/8192=1%, Rehash=0, Collisions=5/147=3%
-# Finished Make data base on Wed Jun  8 19:04:22 2022
+# Finished Make data base on Tue Oct 18 14:43:17 2022
 
  

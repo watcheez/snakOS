@@ -493,6 +493,36 @@ extern void writeString(uint32_t x, uint32_t y, const unsigned char * str)
     }
 }
 
+extern void writeInt(uint32_t x, uint32_t y, const uint32_t integer) 
+{
+	uint8_t negative_bool;
+	uint8_t number[11];
+	uint32_t rest;
+	uint32_t quot;
+	uint8_t k;
+	uint32_t pos;
+	size_t i;
+
+	quot = integer;
+
+	if ((negative_bool = integer < 0)) {
+		quot *= -1;
+	}
+
+	k = 0;
+	do {
+		rest = quot % 10;
+		quot = quot / 10;
+		number[k] = rest + 0x30;
+		++k;
+	} while (quot > 0);
+
+    for (i = 0; i < k; ++i) {
+        pos = y * SCREEN_WIDTH + i + x;
+        writeChar(pos % SCREEN_WIDTH, pos / SCREEN_WIDTH, *(number + k - 1 - i));
+    }
+}
+
 
 extern void clearScreen()
 {
@@ -509,10 +539,10 @@ extern void drawTexture8x8(uint8_t id, uint8_t x, uint8_t y, uint8_t color)
     size_t i;
 
     size_t l = id * 8;
-    size_t rx = x * 8 + 68;
-    size_t ry = y * 8 + 8;
+    size_t rx = x * 8 + 60;
+    size_t ry = y * 8;
 
-    if (x >= -1 && y >= -1 && y <= 23 && x <= 23) {
+    if (x >= 0 && y >= 0 && y <= 24 && x <= 24) {
         for (j = 0; j < 8; j++) {
             for (i = 0; i < 8; i++) {
                 if ((textures8x8[l + j] & (1 << (8 - 1 - i)))) {

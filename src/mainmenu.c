@@ -12,7 +12,6 @@ void get_input(char c)
 {
     if (c = ' ') {
         game_launched = 1;
-        load_game();
     }
 }
 
@@ -33,12 +32,15 @@ void blink()
     timer_wait(50);
     if (!game_launched) {
         blink();
+    } else {
+        load_game();
     }
 }
 
 void load_menu()
 {
-    drawIcon(98, 50, logo);
+    /*drawIcon(98, 50, logo);*/
+    drawIcon(120, 20, logo);
     addKbListener(get_input);
     blink();
 }
