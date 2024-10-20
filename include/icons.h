@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-#define TROLL 1
+#define TROLL 0
 
 #if TROLL
 static const uint8_t logo_d[] = {

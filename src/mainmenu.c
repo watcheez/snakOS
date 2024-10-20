@@ -39,8 +39,8 @@ void blink()
 
 void load_menu()
 {
-    /*drawIcon(98, 50, logo);*/
-    drawIcon(120, 20, logo);
+    drawIcon(98, 50, logo);
+    // drawIcon(120, 20, logo);
     addKbListener(get_input);
     blink();
 }
