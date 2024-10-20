@@ -1,4 +1,6 @@
-# snakOS
+# snakOs
+
+<p align="center"><img src="resources/snakOs.png" width="40%"/></p>
 
 The goal of this little project is to manage to create an operating system (or at least a kernel) that only runs a Snake game.
 
@@ -14,10 +16,10 @@ Below, a list of useful websites which talk about OS programming:
 
 I am driving this project from a **linux machine (Ubunut 24 LTS)**. So all the tools I use have only been tested on this OS.
 
-To have the project running, I am using `qEMU` to emulate the system boot of the snakOS.
+To have the project running, I am using `qEMU` to emulate the system boot of the snakOs.
 
 To compile the assembly code, I use `nasm`.
-And to be able to compile C code which is used by the snakOS, I use an **i386-elf** cross compiler.
+And to be able to compile C code which is used by the snakOs, I use an **i386-elf** cross compiler.
 
 ## Installation
 
@@ -32,5 +34,5 @@ Once the installation done, you only need to build the binary:
 
 And then, run it with the `qemu` virtual machine:
 
-    qemu-system-x86_64 -drive format=raw,file="snakOs.bin",index=0,if=floppy
+    qemu-system-x86_64 -drive format=raw,file="snakOS.bin",index=0,if=floppy
 
