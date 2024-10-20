@@ -21,7 +21,7 @@ uint8_t screen[529]; /*0: empty / 1: snake part / 2: apple*/
 uint8_t *apple;
 uint16_t snake[529];
 uint8_t snakeLength;
-uint8_t direction;
+int direction;
 
 uint8_t game_is_over()
 {
@@ -66,6 +66,14 @@ void map_update()
 
     writeInt(1, 4, snake[0]);
     drawTexture8x8(0, I2X(head), I2Y(head), SNAKE_COLOR);
+}
+
+void update_direction(char c)
+{
+    if (c == 'd' && direction != -1) direction = 1;
+    if (c == 's' && direction != -23) direction = 23;
+    if (c == 'a' && direction != 1) direction = -1;
+    if (c == 'w' && direction != 23) direction = -23;
 }
 
 void game_update()
@@ -126,5 +134,7 @@ void init_game()
         snake[i] = C2I(11 - i, 17);
     }
     direction = DIR(0);
+
+    addKbListener(update_direction);
     game_update();
 }
