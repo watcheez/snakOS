@@ -3,6 +3,6 @@
 
 #include "types.h"
 
-uint8_t init_game();
+uint8_t init_game(uint16_t* output_score);
 
 #endif

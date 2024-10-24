@@ -60,16 +60,19 @@ void load_menu()
     }
 }
 
-void game_over() 
+void game_over(uint16_t score) 
 {
     clearScreen();
     choice = 1;
     validation = 0;
     addKbListener(menu_choice);
     addKbListener(get_validation);
-    writeString(15, 6, "GAME OVER");
-    writeString(14, 12, "-> RETRY");
-    writeString(11, 15, "BACK TO MAIN MENU");
+    writeString(15, 4, "GAME OVER");
+
+    writeString(10, 6, "Score: ");
+    writeInt(17, 6, score);
+    writeString(14, 12, "-> Retry");
+    writeString(11, 15, "Back to main menu");
 
     while (!validation) {};
     removeKbListener(menu_choice);
@@ -85,10 +88,11 @@ void win()
 void load_game()
 {
     clearScreen();
-    if (init_game()) {
+    uint16_t score = 0;
+    if (init_game(&score)) {
         win();
     } else {
-        game_over();
+        game_over(score);
     }
 }
 

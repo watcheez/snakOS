@@ -26,6 +26,7 @@ uint8_t snakeLength;
 int direction;
 int captured_direction;
 uint8_t have_to_spawn_an_apple;
+uint16_t* score;
 
 
 uint8_t game_is_over()
@@ -72,6 +73,7 @@ void map_update()
         type_after_tail = SNAKE;
         color_after_tail = SNAKE_COLOR;
         have_to_spawn_an_apple = 1;
+        ++(*score);
     }
 
     for (i = snakeLength - 1; i > 0; --i)
@@ -115,6 +117,7 @@ uint8_t game_update()
         {
             spawn_an_apple();
             have_to_spawn_an_apple = 0;
+            writeIntBackground(8, 1, *score, BACKGROUND_COLOR);
         }
         
         timer_wait(20);
@@ -122,10 +125,12 @@ uint8_t game_update()
     }
 }
 
-uint8_t init_game()
+uint8_t init_game(uint16_t* out_score)
 {
     size_t i;
     size_t j;
+
+    score = out_score;
 
     setScreenColor(BACKGROUND_COLOR);
     for (i = 1; i < 24; ++i)
@@ -161,5 +166,7 @@ uint8_t init_game()
     direction = RIGHT;
     captured_direction = RIGHT;
     addKbListener(capture_direction);
+    
+    writeStringBackground(1, 1, "Score: 0", BACKGROUND_COLOR);
     return game_update();
 }

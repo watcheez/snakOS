@@ -462,6 +462,11 @@ extern void drawIcon(uint32_t x, uint32_t y, struct icon icon)
 
 extern void writeChar(uint32_t x, uint32_t y, unsigned char c) 
 {
+	writeCharBackground(x, y, c, 0x00);
+}
+
+extern void writeCharBackground(uint32_t x, uint32_t y, unsigned char c, uint8_t background) 
+{
     size_t j;
     size_t i;
 
@@ -476,24 +481,34 @@ extern void writeChar(uint32_t x, uint32_t y, unsigned char c)
                 if ((font[l + j] & (1 << (FONT_WIDTH - 1 - i)))) {
                     drawPixel(rx + i, ry + j + FONT_PADDING_TOP, 0xff);
                 } else {
-					drawPixel(rx + i, ry + j + FONT_PADDING_TOP, 0x00);
+					drawPixel(rx + i, ry + j + FONT_PADDING_TOP, background);
 				}
             }
         }
     }
 }
 
-extern void writeString(uint32_t x, uint32_t y, const unsigned char * str) 
+extern void writeString(uint32_t x, uint32_t y, const unsigned char * str)
+{
+	writeStringBackground(x, y, str, 0x00);
+}
+
+extern void writeStringBackground(uint32_t x, uint32_t y, const unsigned char * str, uint8_t background) 
 {
     size_t len = strlen(str);
 
     for (size_t i = 0; i < len; ++i) {
         uint32_t pos = y * SCREEN_WIDTH + i + x;
-        writeChar(pos % SCREEN_WIDTH, pos / SCREEN_WIDTH, *(str+i));
+        writeCharBackground(pos % SCREEN_WIDTH, pos / SCREEN_WIDTH, *(str+i), background);
     }
 }
 
-extern void writeInt(uint32_t x, uint32_t y, const uint32_t integer) 
+extern void writeInt(uint32_t x, uint32_t y, const uint32_t integer)
+{
+	writeIntBackground(x, y, integer, 0x00);
+}
+
+extern void writeIntBackground(uint32_t x, uint32_t y, const uint32_t integer, uint8_t background) 
 {
 	uint8_t negative_bool;
 	uint8_t number[11];
@@ -519,7 +534,7 @@ extern void writeInt(uint32_t x, uint32_t y, const uint32_t integer)
 
     for (i = 0; i < k; ++i) {
         pos = y * SCREEN_WIDTH + i + x;
-        writeChar(pos % SCREEN_WIDTH, pos / SCREEN_WIDTH, *(number + k - 1 - i));
+        writeCharBackground(pos % SCREEN_WIDTH, pos / SCREEN_WIDTH, *(number + k - 1 - i), background);
     }
 }
 
@@ -539,7 +554,7 @@ extern void drawTexture8x8(uint8_t id, uint8_t x, uint8_t y, uint8_t color)
     size_t i;
 
     size_t l = id * 8;
-    size_t rx = x * 8 + 60;
+    size_t rx = x * 8 + 90;
     size_t ry = y * 8;
 
     if (x >= 0 && y >= 0 && y <= 24 && x <= 24) {
