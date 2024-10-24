@@ -6,18 +6,30 @@
 #include "game.h"
 
 uint8_t sentence_blink = 0;
-uint8_t game_launched = 0;
+uint8_t validation = 0;
+uint8_t choice = 0;
 
-void get_input(char c)
+void get_validation(char c)
 {
-    if (c = ' ') {
-        game_launched = 1;
+    if (c == ' ') {
+        validation = 1;
     }
 }
 
-void remove_kb_listeners()
+void menu_choice(char c)
 {
-    removeKbListener(get_input);
+    if (choice == 1 && c == 's') 
+    {
+        choice = 2;
+        writeString(14, 12, "   ");
+        writeString(8, 15, "-> ");
+    } 
+    else if (choice == 2 && c == 'w') 
+    {
+        choice = 1;
+        writeString(14, 12, "-> ");
+        writeString(8, 15, "   ");
+    }
 }
 
 void blink()
@@ -30,26 +42,53 @@ void blink()
 
     sentence_blink = sentence_blink ^ 1;
     timer_wait(50);
-    if (!game_launched) {
-        blink();
-    } else {
-        load_game();
-    }
 }
 
 void load_menu()
 {
-    drawIcon(98, 50, logo);
-    // drawIcon(120, 20, logo);
-    addKbListener(get_input);
-    blink();
+    while (1) {
+        drawIcon(98, 50, logo);
+        // drawIcon(120, 20, logo);
+        addKbListener(get_validation);
+
+        while (!validation) {
+            blink();
+        }
+        removeKbListener(get_validation);
+        load_game();
+        validation = (choice - 1) ^ 1;
+    }
 }
 
+void game_over() 
+{
+    clearScreen();
+    choice = 1;
+    validation = 0;
+    addKbListener(menu_choice);
+    addKbListener(get_validation);
+    writeString(15, 6, "GAME OVER");
+    writeString(14, 12, "-> RETRY");
+    writeString(11, 15, "BACK TO MAIN MENU");
+
+    while (!validation) {};
+    removeKbListener(menu_choice);
+    removeKbListener(get_validation);
+    clearScreen();
+}
+
+void win()
+{
+
+}
 
 void load_game()
 {
-    remove_kb_listeners();
     clearScreen();
-    init_game();
+    if (init_game()) {
+        win();
+    } else {
+        game_over();
+    }
 }
 

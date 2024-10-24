@@ -1,7 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
-void game_update();
-void init_game();
+#include "types.h"
+
+uint8_t init_game();
 
 #endif

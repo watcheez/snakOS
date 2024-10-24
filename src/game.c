@@ -38,12 +38,6 @@ uint8_t game_is_over()
         || screen[snake[0] + direction] == SNAKE;
 }
 
-void game_over()
-{
-    clearScreen();
-    writeString(15, 8, "GAME OVER");
-}
-
 void spawn_an_apple()
 {
     uint16_t x;
@@ -103,7 +97,7 @@ void capture_direction(char c)
     else if (c == 'w' && direction != DOWN) captured_direction = UP;
 }
 
-void game_update()
+uint8_t game_update()
 {
     while (1)
     {
@@ -111,8 +105,8 @@ void game_update()
 
         if (game_is_over())
         {
-            game_over();
-            break;
+            removeKbListener(capture_direction);
+            return 0;
         }
         
         map_update();
@@ -128,7 +122,7 @@ void game_update()
     }
 }
 
-void init_game()
+uint8_t init_game()
 {
     size_t i;
     size_t j;
@@ -167,5 +161,5 @@ void init_game()
     direction = RIGHT;
     captured_direction = RIGHT;
     addKbListener(capture_direction);
-    game_update();
+    return game_update();
 }
