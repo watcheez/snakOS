@@ -21,11 +21,12 @@
 #define RIGHT 1
 
 uint8_t screen[529]; /*0: empty / 1: snake part / 2: apple */ 
-uint8_t *apple;
 uint16_t snake[529];
 uint8_t snakeLength;
 int direction;
 int captured_direction;
+uint8_t have_to_spawn_an_apple;
+
 
 uint8_t game_is_over()
 {
@@ -43,6 +44,21 @@ void game_over()
     writeString(15, 8, "GAME OVER");
 }
 
+void spawn_an_apple()
+{
+    uint16_t x;
+    uint16_t y;
+
+    do {
+        x = get_random_uint16(22) + 1;
+        timer_wait(1);
+        y = get_random_uint16(22) + 1;
+    } while (screen[C2I(x, y)] != EMPTY);
+
+    drawTexture8x8(0, x, y, APPLE_COLOR);
+    screen[C2I(x, y)] = APPLE;
+}
+
 void map_update()
 {
     int i;
@@ -50,7 +66,7 @@ void map_update()
     int head;
     uint8_t color_after_tail;
     uint8_t type_after_tail;
-
+    
     tail = snake[snakeLength - 1];
 
     type_after_tail = EMPTY;
@@ -61,6 +77,7 @@ void map_update()
         snakeLength++;
         type_after_tail = SNAKE;
         color_after_tail = SNAKE_COLOR;
+        have_to_spawn_an_apple = 1;
     }
 
     for (i = snakeLength - 1; i > 0; --i)
@@ -99,15 +116,20 @@ void game_update()
         }
         
         map_update();
-        timer_wait(50);
+
+        if (have_to_spawn_an_apple) 
+        {
+            spawn_an_apple();
+            have_to_spawn_an_apple = 0;
+        }
+        
+        timer_wait(20);
 
     }
 }
 
 void init_game()
 {
-    uint16_t x;
-    uint16_t y;
     size_t i;
     size_t j;
 
@@ -139,12 +161,8 @@ void init_game()
         drawTexture8x8(0, 11 - i, 17, SNAKE_COLOR);
         snake[i] = C2I(11 - i, 17);
     }
-    x = get_random_uint16(22) + 1;
-    timer_wait(1);
-    y = get_random_uint16(22) + 1;
-
-    drawTexture8x8(0, x, y, APPLE_COLOR);
-    screen[C2I(x, y)] = APPLE;
+    
+    spawn_an_apple();
 
     direction = RIGHT;
     captured_direction = RIGHT;

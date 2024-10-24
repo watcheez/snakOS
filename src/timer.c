@@ -688,7 +688,6 @@ void notifyTimer()
 
 void timer_handler(struct regs *r)
 {
-    writeInt(1,0,timer_ticks);
     timer_ticks++;
     /* Every 18 clocks (approximately 1 second), we will
     *  display a message on the screen */
@@ -710,12 +709,7 @@ void timer_wait(uint32_t ticks)
 
     eticks = timer_ticks + ticks;
 
-    writeInt(1,1,timer_ticks);
-    writeInt(1,2,eticks);
-
-    while(timer_ticks < eticks) {
-        writeInt(1,0,timer_ticks);
-    };
+    while(timer_ticks < eticks) {};
 }
 
 void timer_phase(uint32_t hz)
