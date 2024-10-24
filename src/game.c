@@ -15,7 +15,10 @@
 #define C2I(x, y) y * 23 + x
 #define I2X(i) ((i) % 23) + 1
 #define I2Y(i) ((i) / 23) + 1
-#define DIR(i) !(i) ? 1 : ((i) == 1 ? 23 : ((i) == 2 ? -1 : -23)) /*0: right / 1: down / 2: left / 3: up*/
+#define UP -23
+#define DOWN 23
+#define LEFT -1
+#define RIGHT 1
 
 uint8_t screen[529]; /*0: empty / 1: snake part / 2: apple*/
 uint8_t *apple;
@@ -70,10 +73,10 @@ void map_update()
 
 void update_direction(char c)
 {
-    if (c == 'd' && direction != -1) direction = 1;
-    if (c == 's' && direction != -23) direction = 23;
-    if (c == 'a' && direction != 1) direction = -1;
-    if (c == 'w' && direction != 23) direction = -23;
+    if (c == 'd' && direction != LEFT) direction = RIGHT;
+    if (c == 's' && direction != UP) direction = DOWN;
+    if (c == 'a' && direction != RIGHT) direction = LEFT;
+    if (c == 'w' && direction != DOWN) direction = UP;
 }
 
 void game_update()
@@ -133,7 +136,7 @@ void init_game()
         drawTexture8x8(0, 12 - i, 18, SNAKE_COLOR);
         snake[i] = C2I(11 - i, 17);
     }
-    direction = DIR(0);
+    direction = RIGHT;
 
     addKbListener(update_direction);
     game_update();
