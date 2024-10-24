@@ -14,7 +14,7 @@ Below, a list of useful websites which talk about OS programming:
 
 ## Prerequisites
 
-I am driving this project from a **linux machine (Ubunut 24 LTS)**. So all the tools I use have only been tested on this OS.
+I am driving this project from a **linux machine (Ubuntu 24 LTS)**. So all the tools I use have only been tested on this OS.
 
 To have the project running, I am using `qEMU` to emulate the system boot of the snakOs.
 
