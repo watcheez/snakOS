@@ -12,7 +12,7 @@
 #define EMPTY 0
 #define SNAKE 1
 #define APPLE 2
-#define C2I(x, y) y * 23 + x
+#define C2I(x, y) (y-1) * 23 + (x-1)
 #define I2X(i) ((i) % 23) + 1
 #define I2Y(i) ((i) / 23) + 1
 #define UP -23
@@ -31,8 +31,6 @@ uint8_t game_is_over()
     int newHeadX, newHeadY;
     newHeadX = I2X(snake[0]) + I2X(direction) - 1;
     newHeadY = I2Y(snake[0]) + I2Y(direction) - 1;
-    writeInt(1, 5, I2X(snake[0]));
-    writeInt(1, 6, newHeadX);
     
     return (newHeadX < 1 || newHeadX > 23 || newHeadY < 1 || newHeadY > 23);
 }
@@ -48,27 +46,28 @@ void map_update()
     int i;
     int tail;
     int head;
+    uint8_t color_after_tail;
 
     tail = snake[snakeLength - 1];
-    drawTexture8x8(0, I2X(tail), I2Y(tail), GAME_BACKGROUND_COLOR);
+
+    color_after_tail = GAME_BACKGROUND_COLOR;
 
     if (screen[snake[0] + direction] == APPLE)
     {
         snakeLength++;
-        drawTexture8x8(0, I2X(tail), I2Y(tail), SNAKE_COLOR);
+        color_after_tail = SNAKE_COLOR;
     }
 
     for (i = snakeLength - 1; i > 0; --i)
     {
         snake[i] = snake[i - 1];
     }
-    writeInt(1, 3, direction);
 
     snake[0] += direction;
     head = snake[0];
 
-    writeInt(1, 4, snake[0]);
     drawTexture8x8(0, I2X(head), I2Y(head), SNAKE_COLOR);
+    drawTexture8x8(0, I2X(tail), I2Y(tail), color_after_tail);
 }
 
 void update_direction(char c)
@@ -81,8 +80,6 @@ void update_direction(char c)
 
 void game_update()
 {
-    // uint8_t x;
-    // uint8_t y;
 
     while (1)
     {
@@ -94,17 +91,13 @@ void game_update()
             game_over();
             break;
         }
-
-
-        // x = get_random_uint16(22) + 1;
-        // timer_wait(1);
-        // y = get_random_uint16(22) + 1;
-        // drawTexture8x8(0, x, y, APPLE_COLOR);
     }
 }
 
 void init_game()
 {
+    uint16_t x;
+    uint16_t y;
     size_t i;
     size_t j;
 
@@ -133,9 +126,16 @@ void init_game()
     snakeLength = 3;
     for (i = 0; i < 3; ++i)
     {
-        drawTexture8x8(0, 12 - i, 18, SNAKE_COLOR);
+        drawTexture8x8(0, 11 - i, 17, SNAKE_COLOR);
         snake[i] = C2I(11 - i, 17);
     }
+    x = get_random_uint16(22) + 1;
+    timer_wait(1);
+    y = get_random_uint16(22) + 1;
+
+    drawTexture8x8(0, x, y, APPLE_COLOR);
+    screen[C2I(x, y)] = APPLE;
+
     direction = RIGHT;
 
     addKbListener(update_direction);
