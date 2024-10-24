@@ -20,7 +20,7 @@
 #define LEFT -1
 #define RIGHT 1
 
-uint8_t screen[529]; /*0: empty / 1: snake part / 2: apple*/
+uint8_t screen[529]; /*0: empty / 1: snake part / 2: apple */ 
 uint8_t *apple;
 uint16_t snake[529];
 uint8_t snakeLength;
@@ -33,7 +33,8 @@ uint8_t game_is_over()
     newHeadX = I2X(snake[0]) + I2X(direction) - 1;
     newHeadY = I2Y(snake[0]) + I2Y(direction) - 1;
     
-    return (newHeadX < 1 || newHeadX > 23 || newHeadY < 1 || newHeadY > 23);
+    return (newHeadX < 1 || newHeadX > 23 || newHeadY < 1 || newHeadY > 23)
+        || screen[snake[0] + direction] == SNAKE;
 }
 
 void game_over()
@@ -98,14 +99,16 @@ void game_update()
     while (1)
     {
         update_direction(captured_direction);
-        map_update();
-        timer_wait(50);
 
         if (game_is_over())
         {
             game_over();
             break;
         }
+        
+        map_update();
+        timer_wait(50);
+
     }
 }
 
