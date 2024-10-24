@@ -80,25 +80,17 @@ void map_update()
 
 void capture_direction(char c)
 {
-    if (c == 'd') captured_direction = RIGHT;
-    else if (c == 's') captured_direction = DOWN;
-    else if (c == 'a') captured_direction = LEFT;
-    else if (c == 'w') captured_direction = UP;
-}
-
-void update_direction(int new_direction)
-{
-    if (new_direction == RIGHT && direction != LEFT) direction = RIGHT;
-    if (new_direction == DOWN && direction != UP) direction = DOWN;
-    if (new_direction == LEFT && direction != RIGHT) direction = LEFT;
-    if (new_direction == UP && direction != DOWN) direction = UP;
+    if (c == 'd' && direction != LEFT) captured_direction = RIGHT;
+    else if (c == 's' && direction != UP) captured_direction = DOWN;
+    else if (c == 'a' && direction != RIGHT) captured_direction = LEFT;
+    else if (c == 'w' && direction != DOWN) captured_direction = UP;
 }
 
 void game_update()
 {
     while (1)
     {
-        update_direction(captured_direction);
+        direction = captured_direction;
 
         if (game_is_over())
         {
@@ -155,7 +147,7 @@ void init_game()
     screen[C2I(x, y)] = APPLE;
 
     direction = RIGHT;
-
+    captured_direction = RIGHT;
     addKbListener(capture_direction);
     game_update();
 }
