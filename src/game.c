@@ -25,6 +25,7 @@ uint8_t *apple;
 uint16_t snake[529];
 uint8_t snakeLength;
 int direction;
+int captured_direction;
 
 uint8_t game_is_over()
 {
@@ -76,18 +77,27 @@ void map_update()
     drawTexture8x8(0, I2X(tail), I2Y(tail), color_after_tail);
 }
 
-void update_direction(char c)
+void capture_direction(char c)
 {
-    if (c == 'd' && direction != LEFT) direction = RIGHT;
-    if (c == 's' && direction != UP) direction = DOWN;
-    if (c == 'a' && direction != RIGHT) direction = LEFT;
-    if (c == 'w' && direction != DOWN) direction = UP;
+    if (c == 'd') captured_direction = RIGHT;
+    else if (c == 's') captured_direction = DOWN;
+    else if (c == 'a') captured_direction = LEFT;
+    else if (c == 'w') captured_direction = UP;
+}
+
+void update_direction(int new_direction)
+{
+    if (new_direction == RIGHT && direction != LEFT) direction = RIGHT;
+    if (new_direction == DOWN && direction != UP) direction = DOWN;
+    if (new_direction == LEFT && direction != RIGHT) direction = LEFT;
+    if (new_direction == UP && direction != DOWN) direction = UP;
 }
 
 void game_update()
 {
     while (1)
     {
+        update_direction(captured_direction);
         map_update();
         timer_wait(50);
 
@@ -143,6 +153,6 @@ void init_game()
 
     direction = RIGHT;
 
-    addKbListener(update_direction);
+    addKbListener(capture_direction);
     game_update();
 }
