@@ -47,26 +47,32 @@ void map_update()
     int tail;
     int head;
     uint8_t color_after_tail;
+    uint8_t type_after_tail;
 
     tail = snake[snakeLength - 1];
 
+    type_after_tail = EMPTY;
     color_after_tail = GAME_BACKGROUND_COLOR;
 
     if (screen[snake[0] + direction] == APPLE)
     {
         snakeLength++;
+        type_after_tail = SNAKE;
         color_after_tail = SNAKE_COLOR;
     }
 
     for (i = snakeLength - 1; i > 0; --i)
     {
         snake[i] = snake[i - 1];
+        screen[snake[i]] = SNAKE;
     }
 
     snake[0] += direction;
     head = snake[0];
-
+    
+    screen[head] = SNAKE;
     drawTexture8x8(0, I2X(head), I2Y(head), SNAKE_COLOR);
+    screen[tail] = type_after_tail;
     drawTexture8x8(0, I2X(tail), I2Y(tail), color_after_tail);
 }
 
@@ -80,7 +86,6 @@ void update_direction(char c)
 
 void game_update()
 {
-
     while (1)
     {
         map_update();
